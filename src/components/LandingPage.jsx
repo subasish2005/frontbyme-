@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './LandingPage.css';
+import SparklesPreview from "./SparklesPreview.jsx";
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
       >
         <h1 className="typewriter">Welcome to BlockLearner</h1>
       </motion.div>
+      <SparklesPreview />
       <Link to="/home" className="enter-button">
         Enter
       </Link>
