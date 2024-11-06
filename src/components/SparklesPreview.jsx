@@ -1,25 +1,31 @@
 // SparklesPreview.jsx
-import SparklesCore from "./SparklesCore";
-import "./SparklesPreview.css";
+import SparklesCore from './SparklesCore'; 
+import './SparklesPreview.css';
 
-export const SparklesPreview = () => {
+function SparklesPreview() {
   return (
-    <div className="sparkles-container">
-      <div className="particles-background">
+    <div className="sparkles-preview-container">
+      <h1 className="sparkles-title">BlockLearner</h1>
+      <div className="sparkles-wrapper">
+        <div className="gradient1"></div>
+        <div className="gradient2"></div>
+        <div className="gradient3"></div>
+        <div className="gradient4"></div>
         <SparklesCore
-          id="tsparticlesfullpage"
           background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={100}
+          minSize={0.4}
+          maxSize={1}
+          particleDensity={1200}
+          className="sparkles-core"
           particleColor="#FFFFFF"
         />
+        <div className="radial-gradient-overlay"></div>
       </div>
-      <h1 className="sparkles-heading">
-        Build great products
-      </h1>
     </div>
   );
-};
+}
 
 export default SparklesPreview;
+
+
+

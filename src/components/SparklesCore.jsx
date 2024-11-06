@@ -1,5 +1,3 @@
-// SparklesCore.jsx
-// SparklesCore.jsx
 import { useId, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { motion, useAnimation } from "framer-motion";

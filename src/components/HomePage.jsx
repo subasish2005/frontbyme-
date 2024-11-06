@@ -1,14 +1,13 @@
 import Navbar from './NavBar';
+import SparklesPreview from './SparklesPreview';
 import './HomePage.css';
-
 
 const HomePage = () => {
   return (
     <div className="home-page">
       <Navbar />
-      <div className="content">
-        {/* Add your page content here */}
-      </div>
+      <div className="section">
+      <SparklesPreview /></div>
     </div>
   );
 };

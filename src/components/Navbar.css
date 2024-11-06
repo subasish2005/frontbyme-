@@ -40,7 +40,7 @@
     background-color: #162447;
   }
   
-  /* Mobile responsiveness */
+  /* Mobile responsiveness
   @media (max-width: 768px) {
     .navbar {
       flex-direction: column;
@@ -57,4 +57,4 @@
       margin-top: 1rem;
     }
   }
-  
+   */
