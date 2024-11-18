@@ -8,11 +8,12 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-radius: 0.5rem;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
   .sparkles-title {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: bold;
     text-align: center;
     color: white;
@@ -24,6 +25,11 @@
     width: 40rem;
     height: 10rem;
     position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5rem;
   }
   
   /* Gradients */

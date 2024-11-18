@@ -1,4 +1,4 @@
-import Navbar from './NavBar';
+import Navbar from './Navbar/Navbar1';
 import SparklesPreview from './SparklesPreview';
 import './HomePage.css';
 

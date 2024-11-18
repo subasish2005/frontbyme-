@@ -14,8 +14,8 @@ function SparklesPreview() {
         <SparklesCore
           background="transparent"
           minSize={0.4}
-          maxSize={1}
-          particleDensity={1200}
+          maxSize={1.2}
+          particleDensity={1500}
           className="sparkles-core"
           particleColor="#FFFFFF"
         />
