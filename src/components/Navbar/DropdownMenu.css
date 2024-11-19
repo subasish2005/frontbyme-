@@ -3,18 +3,26 @@
   }
   
   .dropdown-label {
-    background-color: black;
-     border: none; 
-     color: white;
-      padding: 15px 15px;
+    
+      padding: 10px 15px;
        text-align: center;
         text-decoration: none; 
         display: inline-block;
-         font-size: 14px;
           margin: 5% 2%; 
           transition-duration: 0.4s;
            cursor: pointer;
             border-radius: 25px;
+            background: transparent;
+             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+              backdrop-filter: blur(50%);
+               -webkit-backdrop-filter: blur(50%);
+                border: 1px solid rgba(255, 255, 255, 0);
+                 display: flex; 
+                 justify-content: center; 
+                 align-items: center; 
+                 color: white;
+                  font-size: 14px; 
+                   text-align: center;
   }
   .dropdown-label:hover{
    color: rgb(124, 64, 236);

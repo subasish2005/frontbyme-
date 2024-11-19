@@ -1,0 +1,134 @@
+.footer {
+    background: #fff;
+    padding: 100px 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+  }
+  
+  .companyInfo {
+    min-width: 240px;
+    width: 864px;
+  }
+  
+  .logo {
+    width: 84px;
+    aspect-ratio: 2.33;
+    object-fit: contain;
+  }
+  
+  .contactInfo {
+    margin-top: 32px;
+    font: 14px Roboto, sans-serif;
+    font-style: normal;
+  }
+  
+  .addressSection,
+  .contactSection {
+    margin-bottom: 24px;
+  }
+  
+  .addressTitle,
+  .contactTitle {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .addressText {
+    font-weight: 400;
+  }
+  
+  .phoneNumber,
+  .email {
+    display: block;
+    text-decoration: underline;
+    font-weight: 400;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  
+  .socialIcon {
+    width: 24px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+  
+  .navigationColumns {
+    display: flex;
+    gap: 24px;
+    min-width: 240px;
+    flex: 1;
+    font: 600 14px Roboto, sans-serif;
+  }
+  
+  .linkList {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .link {
+    padding: 8px 0;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .footerBottom {
+    margin-top: 80px;
+    font: 400 14px Roboto, sans-serif;
+  }
+  
+  .divider {
+    border: none;
+    height: 1px;
+    background: #000;
+    margin: 0;
+  }
+  
+  .bottomContent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px 100px;
+    margin-top: 32px;
+  }
+  
+  .legalLinks {
+    display: flex;
+    gap: 24px;
+    min-width: 240px;
+  }
+  
+  .legalLink {
+    text-decoration: underline;
+    color: inherit;
+  }
+  
+  @media (max-width: 991px) {
+    .footer {
+      padding: 0 20px;
+    }
+  
+    .content,
+    .companyInfo,
+    .contactInfo,
+    .footerBottom,
+    .divider,
+    .bottomContent {
+      max-width: 100%;
+    }
+  
+    .footerBottom {
+      margin-top: 40px;
+    }
+  }

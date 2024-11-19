@@ -16,9 +16,18 @@
   align-items: center;
   width: min-content;
   height: 1rem;
-  border: #e7dfdd solid 1px;
+  /* border: #e7dfdd solid 1px; */
   border-radius: 50rem;
   padding: 1rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+   backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+     border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      color: white;
 }
 .navbar-floating {
   background-color: transparent;
@@ -26,7 +35,16 @@
 }
 
 .navbar-scrolled {
-  background-color: black;
+  background: rgba(255, 255, 255, 0.027); /* Semi-transparent background */
+   border-radius: 15px; 
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */ 
+   backdrop-filter: blur(10px); /* Apply the blur effect */ 
+   -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex; justify-content: center; align-items: center;
+     color: white; font-size: 24px; 
+
+      text-align: center;
 }
 
 /* Navbar Content */
@@ -70,16 +88,23 @@
 /* Register Button */
 .navbar-register button {
   padding: 0.5rem 1.2rem;
-  background-color: #104386;
-  color: #ffffff;
+
   border: none;
   border-radius: 5rem;
   cursor: pointer;
   font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.144);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  justify-content: center; 
+  align-items: center; 
+  color: white;
 }
 
 .navbar-register button:hover {
-  background-color: #162447;
+  color: rgb(124, 64, 236);
 }
 
 /* Mobile Toggle Button */
