@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
+import { cn } from '@/lib/utils';
 import DropdownMenu from "./DropdownMenu";
 import logosvg from "../../assets/svgs/logo.svg";
 import { FaUser } from 'react-icons/fa';
@@ -44,7 +45,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? "navbar-scrolled" : "navbar-floating"}`}>
+    <nav className={cn('navbar', isScrolled ? 'navbar-scrolled' : 'navbar-floating')}>
       <div className="navbar-content">
         {/* Logo */}
         <Link to="/" className="navbar-logo">
@@ -53,7 +54,7 @@ const Navbar = () => {
 
         {/* Links */}
         <div className="navbar-links-container">
-          <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
+          <div className={cn('navbar-links', menuOpen ? 'open' : '')}>
             <DropdownMenu
               label="Learn"
               links={[
@@ -117,7 +118,7 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger Menu (Mobile) */}
-        <div className="navbar-toggle" onClick={toggleMenu}>
+        <div className={cn('navbar-toggle', menuOpen ? 'open' : '')} onClick={toggleMenu}>
           <span className="dot"></span>
           <span className="dot"></span>
           <span className="dot"></span>

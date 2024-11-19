@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { cn } from '@/lib/utils';
 import "./DropdownMenu.css";
 
 const DropdownMenu = ({ label, links, active, setActive }) => {
@@ -7,14 +8,14 @@ const DropdownMenu = ({ label, links, active, setActive }) => {
 
   return (
     <div
-      className="dropdown-container"
+      className={cn('dropdown-container')}
       onMouseEnter={() => setActive(label)}
       onMouseLeave={() => setActive(null)}
     >
-      <button className="dropdown-label">{label}</button>
-      <div className={`dropdown-menu ${isActive ? 'show' : ''}`}>
+      <button className={cn('dropdown-label')}>{label}</button>
+      <div className={cn('dropdown-menu', isActive && 'show')}>
         {links.map((link, index) => (
-          <Link key={index} to={link.href} className="dropdown-link">
+          <Link key={index} to={link.href} className={cn('dropdown-link')}>
             {link.label}
           </Link>
         ))}
