@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { FaUserPlus, FaUserFriends, FaTrophy } from 'react-icons/fa';
 import PropTypes from 'prop-types';

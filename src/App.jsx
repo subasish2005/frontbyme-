@@ -9,6 +9,7 @@ import Social from './components/social/Social';
 import './App.css';
 
 // Protected Route component
+// eslint-disable-next-line react/prop-types
 const ProtectedRoute = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);

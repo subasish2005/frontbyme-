@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { 
@@ -7,8 +7,7 @@ import {
   FaEdit, 
   FaSave, 
   FaTimes, 
-  FaTasks, 
-  FaBook, 
+  FaTasks,
   FaCalendarAlt, 
   FaUserGraduate, 
   FaMedal, 
@@ -16,9 +15,7 @@ import {
   FaCheckCircle, 
   FaChartLine,
   FaFire,
-  FaTrophy,
-  FaBolt,
-  FaCrown
+
 } from 'react-icons/fa';
 import SidebarDemo from '../Navbar/SidebarDemo';
 import './Profile.css';

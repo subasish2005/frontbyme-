@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar/Navbar1';
 import SparklesPreview from './SparklesPreview';
 import './HomePage.css';
-import { Hero } from './pages/firstpage/Hero';
+import { FirstPage } from './pages/firstpage/FirstPage';
 import {CommunityFeatures} from './pages/communityFeatures/CommunityFeatures';
 import { FeaturesSection } from './pages/featuressection/FeatureSection';
 import { Footer } from './pages/footer/Footer';
@@ -56,7 +56,7 @@ const HomePage = () => {
       <section><div className="section1">
         <SparklesPreview />
       </div></section>
-      <section><div className='section2'><Hero /></div></section>
+      <section><div className='section2'><FirstPage /></div></section>
       <section><div className='section3'><CommunityFeatures /></div></section>
       <section><div className='section4'><FeaturesSection /></div></section>
       <section><div className='section5'><FAQSection /></div></section>
