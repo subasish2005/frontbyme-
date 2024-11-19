@@ -1,24 +1,20 @@
-layout {
-    background: #000000;
+.layout {
+/* background-color: transparent; */
     display: flex;
     flex-direction: column;
     overflow: hidden;
     font-family: Roboto, sans-serif;
     justify-content: center;
     padding: 112px 64px;
-    margin: 10rem;
-    max-width: 100%;
   }
   
   .container {
     display: flex;
-    max-width: 95%;
+    width: 100%;
     align-items: center;
-    gap: 100px;
+    gap: 80px;
     justify-content: start;
     flex-wrap: wrap;
-    margin-left: 10px;
-    background-color: #000000;
   }
   
   .content {
@@ -30,8 +26,6 @@ layout {
     flex: 1;
     flex-basis: 0%;
     margin: auto 0;
-    background-color: #000000;
-    padding: 60px ;
   }
   
   .header {
@@ -99,4 +93,4 @@ layout {
     .featureImage {
       max-width: 100%;
     }
-  }  
+  }

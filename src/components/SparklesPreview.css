@@ -2,7 +2,7 @@
 .sparkles-preview-container {
     height: 100vh;
     width: 100vw;
-    background-color: black;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;

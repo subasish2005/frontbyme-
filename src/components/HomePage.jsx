@@ -10,14 +10,14 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <Navbar />
-      <div className="section">
+     <section> <div className="section1">
       <SparklesPreview />
-      </div>
-      <div><Hero /></div>
-      <div><CommunityFeatures /></div>
-      <div><FeaturesSection /></div>
-      <div><Faq /></div>
-      <div><Footer /></div>
+      </div></section>
+      <section><div className='section2'><Hero /></div></section>
+      <section><div className='section3'><CommunityFeatures /></div></section>
+      <section> <div className='section4'><FeaturesSection /></div></section>
+      <section><div className='section5'><Faq /></div></section>
+      <section><div className='section6'><Footer /></div></section>
       
     </div>
   );
