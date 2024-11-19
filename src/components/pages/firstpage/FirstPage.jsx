@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import './FirstPage.css';
 
@@ -16,7 +17,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-// FirstPage Component (formerly Hero)
+// FirstPage Component
 const FirstPage = () => (
   <section className="hero">
     <div className="hero-content">
