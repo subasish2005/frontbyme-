@@ -86,6 +86,7 @@ const Navbar = () => {
             <DropdownMenu
               label="Community"
               links={[
+                { href: "/social", label: "Social" },
                 { href: "/forum", label: "Forum" },
                 { href: "/events", label: "Events" },
                 { href: "/discord", label: "Discord" },
@@ -109,19 +110,9 @@ const Navbar = () => {
               <button onClick={handleLogout} className="logout-button">Logout</button>
             </>
           ) : (
-            <>
-              <button 
-                onClick={() => navigate('/login')} 
-                className="profile-button"
-                title="Please login to view profile"
-              >
-                <FaUser className="profile-icon" />
-                Profile
-              </button>
-              <Link to="/login">
-                <button className="login-button">Login</button>
-              </Link>
-            </>
+            <Link to="/login">
+              <button className="login-button">Login</button>
+            </Link>
           )}
         </div>
 

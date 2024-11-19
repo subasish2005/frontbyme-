@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Profile from './components/profile/Profile';
+import Social from './components/social/Social';
 import './App.css';
 
 // Protected Route component
@@ -49,6 +50,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/social" 
+          element={
+            <ProtectedRoute>
+              <Social />
             </ProtectedRoute>
           } 
         />

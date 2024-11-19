@@ -1,0 +1,362 @@
+.social-container {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(14, 11, 22, 0.9), rgba(29, 19, 45, 0.9));
+  perspective: 1000px;
+}
+
+.search-section {
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  display: flex;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.search-bar:hover {
+  transform: translateZ(20px);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.search-icon {
+  color: #00f3ff;
+  margin-right: 10px;
+}
+
+.search-bar input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.social-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.users-section, .friend-requests-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.users-section:hover, .friend-requests-section:hover {
+  transform: translateZ(10px);
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* UserCard Styles */
+.user-card {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  padding: 1.5rem;
+  cursor: pointer;
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  transform-style: preserve-3d;
+}
+
+.user-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00f3ff;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 12px;
+  height: 12px;
+  background: #00ff9d;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.user-info h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.user-level {
+  color: #00f3ff;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.achievements-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ff00ff;
+  font-size: 0.9rem;
+}
+
+.trophy-icon {
+  color: #ffd700;
+}
+
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-friend-button, .friend-status {
+  background: transparent;
+  border: 1px solid #00f3ff;
+  color: #00f3ff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.add-friend-button:hover {
+  background: #00f3ff;
+  color: #0e0b16;
+}
+
+.friend-status {
+  border-color: #00ff9d;
+  color: #00ff9d;
+  cursor: default;
+}
+
+/* Friend Request Styles */
+.friend-request {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.request-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sender-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.sender-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sender-info h4 {
+  color: #fff;
+  margin: 0;
+}
+
+.sender-info p {
+  color: #00f3ff;
+  margin: 0.2rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+.request-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.accept-button, .reject-button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accept-button {
+  color: #00ff9d;
+}
+
+.reject-button {
+  color: #ff00ff;
+}
+
+.accept-button:hover, .reject-button:hover {
+  transform: scale(1.1);
+}
+
+/* User Profile Modal */
+.user-profile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 11, 22, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  transform-style: preserve-3d;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  color: #ff00ff;
+  transform: scale(1.1);
+}
+
+.user-profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.user-profile-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00f3ff;
+  margin-bottom: 1rem;
+}
+
+.user-profile-header h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.user-profile-header p {
+  color: #00f3ff;
+  margin: 0.5rem 0 0 0;
+}
+
+.user-achievements {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.user-achievements h3 {
+  color: #fff;
+  margin: 0 0 1rem 0;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.achievement-icon {
+  color: #ffd700;
+}
+
+.achievement-item span {
+  color: #fff;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #00f3ff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .social-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-container {
+    padding: 1rem;
+  }
+
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
