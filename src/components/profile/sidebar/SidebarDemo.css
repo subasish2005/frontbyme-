@@ -1,0 +1,96 @@
+/* General Container */
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 60px;
+    background-color: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar-open {
+    width: 300px;
+  }
+  
+  /* Logo Styles */
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Link Styles */
+  .links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .link:hover {
+    background-color: #f9fafb;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .label {
+    font-size: 14px;
+  }
+  
+  /* Dashboard Styles */
+  .dashboard {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    height: 100px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+  }
+  
+  .card-large {
+    flex: 1;
+    height: 200px;
+    background-color: #e5e7eb;
+    border-radius: 8px;
+  }
+  

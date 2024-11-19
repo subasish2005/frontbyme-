@@ -1,18 +1,31 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from '../../firebase';
+import { signOut } from 'firebase/auth';
 import DropdownMenu from "./DropdownMenu";
 import logosvg from "../../assets/svgs/logo.svg";
+import { FaUser } from 'react-icons/fa';
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState(null);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -20,6 +33,15 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/login');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
 
   return (
     <nav className={`navbar ${isScrolled ? "navbar-scrolled" : "navbar-floating"}`}>
@@ -29,28 +51,20 @@ const Navbar = () => {
           <img src={logosvg} alt="BlockLearner Logo" />
         </Link>
 
-        {/* Links (Desktop) */}
+        {/* Links */}
         <div className="navbar-links-container">
           <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
             <DropdownMenu
-              label="Infrastructure"
+              label="Learn"
               links={[
-                { href: "/infrastructure", label: "Overview" },
-                { href: "/services", label: "Services" },
-              ]}
-              active={active}
-              setActive={setActive}
-            />
-            <DropdownMenu
-              label="Token"
-              links={[
-                { href: "/analytics", label: "Reports" },
+                { href: "/courses", label: "Courses" },
+                { href: "/tutorials", label: "Tutorials" },
                 { href: "/dashboard", label: "Dashboard" },
               ]}
               active={active}
               setActive={setActive}
             />
-              <DropdownMenu
+            <DropdownMenu
               label="About"
               links={[
                 { href: "/infrastructure", label: "Overview" },
@@ -60,19 +74,21 @@ const Navbar = () => {
               setActive={setActive}
             />
             <DropdownMenu
-              label="Analytics"
+              label="Resources"
               links={[
-                { href: "/infrastructure", label: "Overview" },
-                { href: "/services", label: "Services" },
+                { href: "/documentation", label: "Documentation" },
+                { href: "/blog", label: "Blog" },
+                { href: "/support", label: "Support" },
               ]}
               active={active}
               setActive={setActive}
             />
             <DropdownMenu
-              label="Developers"
+              label="Community"
               links={[
-                { href: "/infrastructure", label: "Overview" },
-                { href: "/services", label: "Services" },
+                { href: "/forum", label: "Forum" },
+                { href: "/events", label: "Events" },
+                { href: "/discord", label: "Discord" },
               ]}
               active={active}
               setActive={setActive}
@@ -80,9 +96,33 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Register Button */}
+        {/* Authentication */}
         <div className="navbar-register">
-          <button>Login</button>
+          {user ? (
+            <>
+              <Link to="/profile" className="profile-link">
+                <button className="profile-button">
+                  <FaUser className="profile-icon" />
+                  Profile
+                </button>
+              </Link>
+              <button onClick={handleLogout} className="logout-button">Logout</button>
+            </>
+          ) : (
+            <>
+              <button 
+                onClick={() => navigate('/login')} 
+                className="profile-button"
+                title="Please login to view profile"
+              >
+                <FaUser className="profile-icon" />
+                Profile
+              </button>
+              <Link to="/login">
+                <button className="login-button">Login</button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Hamburger Menu (Mobile) */}
