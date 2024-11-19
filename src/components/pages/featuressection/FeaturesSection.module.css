@@ -1,62 +1,115 @@
 .section {
-   background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    font-family: Roboto, sans-serif;
-    justify-content: flex-start;
-    padding: 112px 64px;
-  }
-  
-  @media (max-width: 991px) {
-    .section {
-      padding: 100px 20px;
-    }
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 80px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.heading {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  background: linear-gradient(135deg, #00f3ff, #7d12ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .section {
+    padding: 100px 40px;
   }
   
   .heading {
-    text-align: center;
     font-size: 40px;
-    font-weight: 700;
-    line-height: 48px;
-    align-self: center;
-    width: 768px;
-  }
-  
-  @media (max-width: 991px) {
-    .heading {
-      max-width: 100%;
-    }
-  }
-  
-  .content {
-    display: flex;
-    margin-top: 80px;
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
-  @media (max-width: 991px) {
-    .content {
-      max-width: 100%;
-      margin-top: 40px;
-    }
+    max-width: 800px;
+    margin-bottom: 50px;
   }
   
   .cardGrid {
-    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+}
 
-    width: 100%;
-    align-items: flex-start;
-    gap: 40px 48px;
-    justify-content: center;
-    flex-wrap: wrap;
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 20px;
   }
   
-  @media (max-width: 991px) {
-    .cardGrid {
-      max-width: 100%;
-    }
+  .heading {
+    font-size: 32px;
+    max-width: 100%;
+    margin-bottom: 40px;
+    padding: 0 20px;
   }
   
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+/* Background Effects */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(125, 18, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hover Effects for Grid */
+.cardGrid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cardGrid:hover::after {
+  opacity: 1;
+}

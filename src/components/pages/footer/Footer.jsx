@@ -43,13 +43,13 @@ export const Footer = () => {
             <div className={styles.addressSection}>
               <h3 className={styles.addressTitle}>Address:</h3>
               <p className={styles.addressText}>
-                Level 1, 12 Sample St, Sydney NSW 2000
+                park street WestBengal kolkata
               </p>
             </div>
             <div className={styles.contactSection}>
               <h3 className={styles.contactTitle}>Contact:</h3>
               <a href="tel:1800123456" className={styles.phoneNumber}>1800 123 4567</a>
-              <a href="mailto:info@relume.io" className={styles.email}>info@relume.io</a>
+              <a href="mailto:info@relume.io" className={styles.email}>Blocklearner.io</a>
             </div>
           </address>
           <div className={styles.socialLinks}>
@@ -68,7 +68,7 @@ export const Footer = () => {
       <div className={styles.footerBottom}>
         <hr className={styles.divider} />
         <div className={styles.bottomContent}>
-          <p className={styles.copyright}>© 2024 Relume. All rights reserved.</p>
+          <p className={styles.copyright}>All rights reserved.</p>
           <nav className={styles.legalLinks}>
             <a href="#" className={styles.legalLink}>Privacy Policy</a>
             <a href="#" className={styles.legalLink}>Terms of Service</a>

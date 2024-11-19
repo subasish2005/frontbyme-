@@ -12,15 +12,13 @@ const DropdownMenu = ({ label, links, active, setActive }) => {
       onMouseLeave={() => setActive(null)}
     >
       <button className="dropdown-label">{label}</button>
-      {isActive && (
-        <div className="dropdown-menu">
-          {links.map((link, index) => (
-            <Link key={index} to={link.href} className="dropdown-link">
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <div className={`dropdown-menu ${isActive ? 'show' : ''}`}>
+        {links.map((link, index) => (
+          <Link key={index} to={link.href} className="dropdown-link">
+            {link.label}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

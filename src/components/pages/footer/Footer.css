@@ -68,7 +68,7 @@
   }
 }
 
-.companyInfo {
+.company-info {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -87,7 +87,7 @@
   filter: drop-shadow(0 0 40px rgba(0, 243, 255, 0.5));
 }
 
-.contactInfo {
+.contact-info {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -100,7 +100,7 @@
   transition: all 0.3s ease;
 }
 
-.contactInfo:hover {
+.contact-info:hover {
   background: rgba(255, 255, 255, 0.05);
   transform: translateZ(40px);
   box-shadow: 
@@ -109,13 +109,13 @@
     0 0 50px rgba(0, 243, 255, 0.1);
 }
 
-.addressSection, .contactSection {
+.address-section, .contact-section {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.addressTitle, .contactTitle {
+.address-title, .contact-title {
   font-size: 18px;
   font-weight: 600;
   background: linear-gradient(135deg, #00f3ff, #7d12ff);
@@ -125,31 +125,31 @@
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
-.addressText {
+.address-text {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
 }
 
-.phoneNumber, .email {
+.phone-number, .email {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.3s ease;
   display: block;
 }
 
-.phoneNumber:hover, .email:hover {
+.phone-number:hover, .email:hover {
   color: #00f3ff;
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
   transform: translateX(5px);
 }
 
-.socialLinks {
+.social-links {
   display: flex;
   gap: 16px;
   transform: translateZ(40px);
 }
 
-.navigationColumns {
+.navigation-columns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
@@ -157,11 +157,11 @@
   transition: transform 0.3s ease;
 }
 
-.navigationColumns:hover {
+.navigation-columns:hover {
   transform: translateZ(40px);
 }
 
-.linkList {
+.link-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -195,7 +195,7 @@
   width: 100%;
 }
 
-.footerBottom {
+.footer-bottom {
   margin-top: 80px;
   position: relative;
   z-index: 1;
@@ -243,7 +243,7 @@
   }
 }
 
-.bottomContent {
+.bottom-content {
   max-width: 1400px;
   margin: 0 auto;
   padding-top: 40px;
@@ -254,7 +254,7 @@
   transition: transform 0.3s ease;
 }
 
-.bottomContent:hover {
+.bottom-content:hover {
   transform: translateZ(30px);
 }
 
@@ -263,87 +263,56 @@
   font-size: 14px;
 }
 
-.legalLinks {
+.legal-links {
   display: flex;
   gap: 24px;
 }
 
-.legalLink {
+.legal-link {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 14px;
   transition: all 0.3s ease;
 }
 
-.legalLink:hover {
-  color: #00f3ff;
-  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+.legal-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
-/* Social Icon Styles */
-.socialIcon {
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.socialIcon:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-5px);
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(0, 243, 255, 0.3);
-}
-
-.socialIcon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
   .content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .navigationColumns {
-    grid-template-columns: repeat(2, 1fr);
+  .navigation-columns {
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 60px 20px 30px;
+    padding: 60px 0 30px;
   }
 
-  .bottomContent {
+  .content {
+    padding: 0 20px;
+  }
+
+  .navigation-columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bottom-content {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
 
-  .legalLinks {
+  .legal-links {
     flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .navigationColumns {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .socialLinks {
-    justify-content: center;
+    gap: 15px;
   }
 }
