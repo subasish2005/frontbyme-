@@ -5,6 +5,8 @@
     /* background: linear-gradient(to bottom, #000000, #0d47a1); */
     color: #e7dfdd;
     height: 100%;
+    perspective: 1000px;
+    transform-style: preserve-3d;
   }
   
   .section {
@@ -13,6 +15,52 @@
     display: flex;
     text-align: center;
     animation: fadeIn 1s ease-in;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+  }
+  
+  .section1, .section2, .section3, .section4, .section5, .section6 {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+
+  .section.scroll-active {
+    transform: translateZ(50px) scale(1.1);
+  }
+
+  /* Side icons with 3D hover effect */
+  .side-icons {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .side-icon {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  .side-icon:hover {
+    transform: translateZ(20px) scale(1.5);
+    background: #00f3ff;
+    box-shadow: 0 0 15px #00f3ff;
+  }
+
+  .side-icon.active {
+    background: #00f3ff;
+    transform: translateZ(30px) scale(1.8);
+    box-shadow: 0 0 20px #00f3ff;
   }
   
   @keyframes fadeIn {
@@ -24,4 +72,7 @@
     }
   }
   
-  
+  /* Add smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
