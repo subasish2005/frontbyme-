@@ -12,9 +12,9 @@ html, body {
 body {
   background-image: url('./assets/images/full.jpg');
   background-size: cover;
-  background-position: center;
+  
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Changed to fixed for better scrolling experience */
+  background-attachment: scroll; /* Changed to fixed for better scrolling experience */
   min-height: 100vh;
   width: 100vw;
   position: relative; /* Added to ensure proper stacking context */
