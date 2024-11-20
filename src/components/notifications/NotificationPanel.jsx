@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaBell, FaTimes, FaCheckCircle, FaExclamationCircle, FaInfoCircle } from 'react-icons/fa';
 import './NotificationPanel.css';
 
-const NotificationPanel = ({ isOpen, togglePanel }) => {
+const NotificationPanel = ({ isOpen, onClose, togglePanel }) => {
   const [notifications, setNotifications] = useState([
     {
       id: 1,
@@ -63,7 +63,7 @@ const NotificationPanel = ({ isOpen, togglePanel }) => {
           <FaBell className="bell-icon" />
           Notifications
         </h3>
-        <button className="close-button" onClick={togglePanel}>
+        <button className="close-button" onClick={onClose}>
           <FaTimes />
         </button>
       </div>

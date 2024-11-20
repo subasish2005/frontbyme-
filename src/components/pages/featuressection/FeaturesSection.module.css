@@ -2,21 +2,23 @@
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 120px 80px;
   min-height: 100vh;
+  width: 100%;
   position: relative;
   overflow: hidden;
+  transform: translateX(-50px);
 }
 
 .heading {
-  text-align: center;
+  text-align: left;
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
-  max-width: 900px;
-  margin: 0 auto 60px;
+  max-width: 800px;
+  margin: 0 0 60px -20px;
   background: linear-gradient(135deg, #00f3ff, #7d12ff);
   -webkit-background-clip: text;
   background-clip: text;
@@ -26,38 +28,75 @@
   z-index: 1;
 }
 
+.slideIn {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .content {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0;
+  margin-left: -20px;
   position: relative;
   z-index: 2;
+  padding: 0;
 }
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   position: relative;
 }
 
+.cardGrid > div {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardGrid > div.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .section {
-    padding: 100px 40px;
+    transform: translateX(-25px);
   }
   
   .heading {
-    font-size: 40px;
-    max-width: 800px;
-    margin-bottom: 50px;
+    margin-left: -10px;
   }
   
-  .cardGrid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+  .content {
+    margin-left: -10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: 100px 20px 100px 80px;
+    transform: translateX(0);
+  }
+  
+  .heading {
+    margin-left: 0;
+    font-size: 40px;
+  }
+  
+  .content {
+    margin-left: 0;
   }
 }
 
@@ -68,14 +107,14 @@
   
   .heading {
     font-size: 32px;
-    max-width: 100%;
-    margin-bottom: 40px;
-    padding: 0 20px;
+    text-align: center;
+    margin: 0 auto 40px;
   }
   
   .cardGrid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
 
@@ -87,9 +126,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(125, 18, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }

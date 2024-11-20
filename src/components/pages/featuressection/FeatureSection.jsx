@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FeatureCard } from './FeatureCard';
 import styles from './FeaturesSection.module.css';
 
@@ -28,15 +28,59 @@ const features = [
 ];
 
 export function FeaturesSection() {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const cardsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px'
+      }
+    );
+
+    // Observe heading
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    // Observe cards container
+    if (cardsRef.current) {
+      const cards = cardsRef.current.children;
+      Array.from(cards).forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1 + 0.3}s`;
+        observer.observe(card);
+      });
+    }
+
+    return () => {
+      if (headingRef.current) observer.unobserve(headingRef.current);
+      if (cardsRef.current) {
+        const cards = cardsRef.current.children;
+        Array.from(cards).forEach(card => observer.unobserve(card));
+      }
+    };
+  }, []);
+
   return (
-    <section className={styles.section}>
-      <h2 className={styles.heading}>
+    <section className={styles.section} ref={sectionRef}>
+      <h2 className={`${styles.heading} ${styles.slideIn}`} ref={headingRef}>
         Discover our innovative community development features designed for engagement and growth.
       </h2>
       <div className={styles.content}>
-        <div className={styles.cardGrid}>
+        <div className={styles.cardGrid} ref={cardsRef}>
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <div key={index} className={styles.slideIn}>
+              <FeatureCard {...feature} />
+            </div>
           ))}
         </div>
       </div>

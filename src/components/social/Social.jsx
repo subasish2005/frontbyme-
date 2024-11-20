@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaUserPlus, FaUserMinus, FaEnvelope, FaTrophy, FaMedal, FaSearch } from 'react-icons/fa';
+import {  FaSearch } from 'react-icons/fa';
 import { collection, query, where, getDocs, addDoc, deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../../firebase';
 import UserCard from './UserCard';
@@ -12,6 +12,7 @@ const Social = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [friendRequests, setFriendRequests] = useState([]);
   const [friends, setFriends] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [selectedUser, setSelectedUser] = useState(null);
   const [loading, setLoading] = useState(true);
 

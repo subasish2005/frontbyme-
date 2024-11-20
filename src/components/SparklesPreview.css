@@ -1,86 +1,85 @@
 /* SparklesPreview.css */
 .sparkles-preview-container {
-    height: 100vh;
-    width: 100vw;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .sparkles-title {
-    font-size: 6rem;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 20;
-  }
-  
-  .sparkles-wrapper {
-    width: 40rem;
-    height: 10rem;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: -5rem;
-  }
-  
-  /* Gradients */
-  .gradient1,
-  .gradient2,
-  .gradient3,
-  .gradient4 {
-    position: absolute;
-    top: 0;
-    background: linear-gradient(to right, transparent, #6366f1, transparent);
-  }
-  
-  .gradient1 {
-    left: 5rem;
-    right: 5rem;
-    height: 2px;
-    width: 75%;
-    filter: blur(4px);
-  }
-  
-  .gradient2 {
-    left: 5rem;
-    right: 5rem;
-    height: 1px;
-    width: 75%;
-  }
-  
-  .gradient3 {
-    left: 15rem;
-    right: 15rem;
-    height: 5px;
-    width: 25%;
-    background: linear-gradient(to right, transparent, #38bdf8, transparent);
-    filter: blur(4px);
-  }
-  
-  .gradient4 {
-    left: 15rem;
-    right: 15rem;
-    height: 1px;
-    width: 25%;
-    background: linear-gradient(to right, transparent, #38bdf8, transparent);
-  }
-  
-  /* Radial gradient overlay */
-  .radial-gradient-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    mask-image: radial-gradient(350px 200px at top, transparent 20%, white);
-  }
-  
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sparkles-title {
+  font-size: 6rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 20;
+}
+
+.sparkles-wrapper {
+  width: 40rem;
+  height: 10rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -5rem;
+}
+
+/* Gradients */
+.gradient1,
+.gradient2,
+.gradient3,
+.gradient4 {
+  position: absolute;
+  top: 0;
+  background: linear-gradient(to right, transparent, #6366f1, transparent);
+}
+
+.gradient1 {
+  left: 5rem;
+  right: 5rem;
+  height: 2px;
+  width: 75%;
+  filter: blur(4px);
+}
+
+.gradient2 {
+  left: 5rem;
+  right: 5rem;
+  height: 1px;
+  width: 75%;
+}
+
+.gradient3 {
+  left: 15rem;
+  right: 15rem;
+  height: 5px;
+  width: 25%;
+  background: linear-gradient(to right, transparent, #38bdf8, transparent);
+  filter: blur(4px);
+}
+
+.gradient4 {
+  left: 15rem;
+  right: 15rem;
+  height: 1px;
+  width: 25%;
+  background: linear-gradient(to right, transparent, #38bdf8, transparent);
+}
+
+/* Radial gradient overlay */
+.radial-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  mask-image: radial-gradient(350px 200px at top, transparent 20%, white);
+}

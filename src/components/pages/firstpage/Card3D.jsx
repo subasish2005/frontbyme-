@@ -19,6 +19,24 @@ const Card3D = ({ title, description, icon, className }) => {
   const scale = useSpring(isHovered ? 1.1 : 1, springConfig);
   const translateZ = useSpring(isHovered ? 20 : 0, springConfig);
 
+  // Shadow intensity based on hover state
+  const boxShadow = useSpring(
+    isHovered ? '0px 20px 30px rgba(0, 0, 0, 0.35)' : '0px 10px 15px rgba(0, 0, 0, 0.2)',
+    springConfig
+  );
+
+  // Reflection effect
+  const reflection = useSpring(
+    isHovered ? 'linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1))' : 'none',
+    springConfig
+  );
+
+  // Enhanced lighting effect
+  const lightingEffect = useSpring(
+    isHovered ? 'linear-gradient(145deg, rgba(255,255,255,0.2), rgba(0,0,0,0.2))' : 'none',
+    springConfig
+  );
+
   const handleMouseMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect();
     const width = rect.width;
@@ -48,6 +66,9 @@ const Card3D = ({ title, description, icon, className }) => {
         rotateY,
         scale,
         z: translateZ,
+        boxShadow,
+        background: reflection,
+        backgroundImage: lightingEffect,
         transformStyle: "preserve-3d",
       }}
       initial={{ opacity: 0, y: 20 }}
@@ -77,7 +98,11 @@ const Card3D = ({ title, description, icon, className }) => {
           className="card-title"
           style={{
             z: 30,
-            scale: useSpring(isHovered ? 1.1 : 1, springConfig)
+            scale: useSpring(isHovered ? 1.1 : 1, springConfig),
+            fontSize: '1.5rem',  
+            fontWeight: 'bold',  
+            color: '#fff',  
+            padding: '0.5rem',  
           }}
         >
           {title}
@@ -86,7 +111,10 @@ const Card3D = ({ title, description, icon, className }) => {
           className="card-description"
           style={{
             z: 20,
-            opacity: useSpring(isHovered ? 0.9 : 0.7, springConfig)
+            opacity: useSpring(isHovered ? 0.9 : 0.7, springConfig),
+            fontSize: '1rem',  
+            color: '#eee',  
+            padding: '0.5rem',  
           }}
         >
           {description}

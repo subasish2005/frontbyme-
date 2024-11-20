@@ -1,7 +1,7 @@
 .social-container {
   padding: 2rem;
   min-height: 100vh;
-  background: linear-gradient(135deg, rgba(14, 11, 22, 0.9), rgba(29, 19, 45, 0.9));
+  background-image: url("../../assets/images/02.jpg");
   perspective: 1000px;
 }
 

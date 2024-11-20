@@ -164,15 +164,37 @@
 .linkList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  font-size: 16px;
   transition: all 0.3s ease;
+  display: block;
+  margin-bottom: 12px;
   position: relative;
-  padding-left: 0;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link:hover {
+  color: #fff;
+  transform: translateX(0) scale(1.05);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.slideIn {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .link::before {
@@ -184,11 +206,6 @@
   height: 1px;
   background: linear-gradient(to right, #00f3ff, #7d12ff);
   transition: width 0.3s ease;
-}
-
-.link:hover {
-  color: #fff;
-  padding-left: 10px;
 }
 
 .link:hover::before {

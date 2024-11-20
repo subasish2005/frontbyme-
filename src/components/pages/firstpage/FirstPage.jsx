@@ -1,22 +1,23 @@
-
 import PropTypes from 'prop-types';
 import { cn } from '@/lib/utils';
-// import {BackgroundLinesDemo} from "../../../components/backgroundlines/BackgroundLinesDemo";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Card3D from './Card3D';
 import './FirstPage.css';
 
-// Button Component
-// eslint-disable-next-line react/prop-types
-const Button = ({ variant, className, children, ...props }) => (
-  <button 
+// Enhanced Button Component with 3D effect
+const EnhancedButton = ({ variant, className, children, ...props }) => (
+  <motion.button 
     className={cn('button', variant, className)}
+    whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)" }}
+    whileTap={{ scale: 0.95 }}
     {...props}
   >
     {children}
-  </button>
+  </motion.button>
 );
 
-Button.propTypes = {
+EnhancedButton.propTypes = {
   variant: PropTypes.string,
   children: PropTypes.node.isRequired
 };
@@ -39,47 +40,143 @@ const cardData = [
   }
 ];
 
+// Text animation variants
+const textContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const textVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: -100,
+    filter: "blur(8px)"
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      damping: 25,
+      stiffness: 100
+    }
+  }
+};
+
+// Card container animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: 100,
+    scale: 0.8
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 100
+    }
+  }
+};
+
 // FirstPage Component
-const FirstPage = () => (
-  <div className="relative min-h-screen">
-    
-    
-    <div className="relative z-10">
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-title-column">
-            <h1 className="hero-title">
-              Empower Your Community, Unlock Your Potential
-            </h1>
-          </div>
-          
-          <div className="hero-content-column">
-            <p className="hero-description">
-              Join our innovative platform designed to foster community development 
-              and connection. Earn points, showcase your achievements, and collaborate 
-              with friends to create a vibrant community.
-            </p>
+const FirstPage = () => {
+  const cardsRef = useRef(null);
+  const textRef = useRef(null);
+  const isCardsInView = useInView(cardsRef, { once: true, margin: "-100px" });
+  const isTextInView = useInView(textRef, { once: true, margin: "-100px" });
+
+  return (
+    <div className="relative min-h-screen">
+      <div className="background-lines" />
+      
+      <div className="relative z-10">
+        <section className="hero">
+          <div className="hero-content">
+            <motion.div 
+              ref={textRef}
+              className="hero-title-column"
+              variants={textContainerVariants}
+              initial="hidden"
+              animate={isTextInView ? "visible" : "hidden"}
+            >
+              <motion.h1 
+                className="hero-title"
+                variants={textVariants}
+              >
+                Empower Your Community, Unlock Your Potential
+              </motion.h1>
+              
+              <motion.p 
+                className="hero-description"
+                variants={textVariants}
+              >
+                Join our innovative platform designed to foster community development 
+                and connection. Earn points, showcase your achievements, and collaborate 
+                with friends to create a vibrant community.
+              </motion.p>
+              
+              <motion.div 
+                className="hero-actions"
+                variants={textVariants}
+              >
+                <EnhancedButton variant="primary">Join</EnhancedButton>
+                <EnhancedButton variant="secondary">Learn More</EnhancedButton>
+              </motion.div>
+            </motion.div>
             
-            <div className="hero-actions">
-              <Button variant="primary">Join</Button>
-              <Button variant="secondary">Learn More</Button>
+            <div className="hero-content-column">
+              <motion.div 
+                ref={cardsRef}
+                className="cards-container"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isCardsInView ? "visible" : "hidden"}
+              >
+                {cardData.map((card, index) => (
+                  <motion.div
+                    key={index}
+                    variants={cardVariants}
+                  >
+                    <Card3D
+                      title={card.title}
+                      description={card.description}
+                      icon={card.icon}
+                      className="feature-card"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="cards-section">
-        {cardData.map((card, index) => (
-          <Card3D
-            key={index}
-            title={card.title}
-            description={card.description}
-            icon={card.icon}
-          />
-        ))}
-      </section>
+        <section className="cards-section">
+        </section>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
-export { Button, FirstPage };
+export { EnhancedButton, FirstPage };

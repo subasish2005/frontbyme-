@@ -1,49 +1,71 @@
-import { useState } from "react";
-import "./SidebarDemo.css";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaHome, FaBook, FaTrophy, FaCog, FaChevronLeft, FaChevronRight, FaBell } from 'react-icons/fa';
+import NotificationPanel from '../../notifications/NotificationPanel';
+import './SidebarDemo.css';
 
-const SidebarDemo = () => {
-  const [open, setOpen] = useState(false);
+const SidebarDemo = ({ isOpen, toggleSidebar }) => {
+  const [isNotificationPanelOpen, setIsNotificationPanelOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(2); // This would normally come from your notification system
 
-  const links = [
-    { label: "Dashboard", href: "#", icon: "📊" },
-    { label: "Profile", href: "#", icon: "👤" },
-    { label: "Settings", href: "#", icon: "⚙️" },
-    { label: "Logout", href: "#", icon: "🔙" },
-  ];
+  const toggleNotificationPanel = () => {
+    setIsNotificationPanelOpen(!isNotificationPanelOpen);
+  };
+
+  const handleNotificationRead = () => {
+    setUnreadCount(0);
+  };
 
   return (
-    <div className="container">
-      <div
-        className={`sidebar ${open ? "sidebar-open" : "sidebar-closed"}`}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-      >
-        <div className="logo">
-          <div className="logo-icon" />
-          {open && <span className="logo-text">Acet Labs</span>}
+    <>
+      <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
+        <button className="toggle-button" onClick={toggleSidebar}>
+          {isOpen ? <FaChevronLeft /> : <FaChevronRight />}
+        </button>
+        
+        <div className="sidebar-content">
+          <div className="sidebar-header">
+            <h3>BlockLearner</h3>
+          </div>
+
+          <nav className="sidebar-nav">
+            <Link to="/" className="nav-item">
+              <FaHome className="nav-icon" />
+              <span className="nav-text">Home</span>
+            </Link>
+
+            <Link to="/courses" className="nav-item">
+              <FaBook className="nav-icon" />
+              <span className="nav-text">Courses</span>
+            </Link>
+
+            <Link to="/achievements" className="nav-item">
+              <FaTrophy className="nav-icon" />
+              <span className="nav-text">Achievements</span>
+            </Link>
+
+            <button className="nav-item notification-button" onClick={toggleNotificationPanel}>
+              <div className="notification-icon-wrapper">
+                <FaBell className="nav-icon" />
+                {unreadCount > 0 && (
+                  <span className="notification-badge">{unreadCount}</span>
+                )}
+              </div>
+              <span className="nav-text">Notifications</span>
+            </button>
+
+            <Link to="/settings" className="nav-item">
+              <FaCog className="nav-icon" />
+              <span className="nav-text">Settings</span>
+            </Link>
+          </nav>
         </div>
-        <ul className="links">
-          {links.map((link, index) => (
-            <li key={index} className="link">
-              <span className="icon">{link.icon}</span>
-              {open && <span className="label">{link.label}</span>}
-            </li>
-          ))}
-        </ul>
       </div>
-      <div className="dashboard">
-        <div className="row">
-          {[...Array(4)].map((_, index) => (
-            <div key={index} className="card"></div>
-          ))}
-        </div>
-        <div className="row">
-          {[...Array(2)].map((_, index) => (
-            <div key={index} className="card-large"></div>
-          ))}
-        </div>
-      </div>
-    </div>
+
+      {isNotificationPanelOpen && (
+        <NotificationPanel onClose={toggleNotificationPanel} onNotificationRead={handleNotificationRead} />
+      )}
+    </>
   );
 };
 

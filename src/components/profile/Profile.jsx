@@ -15,9 +15,10 @@ import {
   FaCheckCircle, 
   FaChartLine,
   FaFire,
-
+  FaUserFriends,
 } from 'react-icons/fa';
-import SidebarDemo from '../Navbar/SidebarDemo';
+import SidebarDemo from './sidebar/SidebarDemo';
+import Friends from './Friends/Friends';
 import './Profile.css';
 
 const Profile = () => {
@@ -66,6 +67,7 @@ const Profile = () => {
     ],
     level: 'Intermediate'
   });
+  const [activeSection, setActiveSection] = useState('profile'); // 'profile', 'friends', etc.
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -119,161 +121,184 @@ const Profile = () => {
       
       <div className={`profile-main ${!isSidebarOpen ? 'sidebar-collapsed' : ''}`}>
         <div className="profile-container">
-          <div className="profile-header">
-            <div className="header-content">
-              <div className="profile-avatar">
-                <FaUser className="avatar-icon" />
-              </div>
-              <div className="header-text">
-                <h1>{profileData.displayName}</h1>
-                <span className="user-level">
-                  <FaUserGraduate /> {profileData.level} Learner
-                </span>
-              </div>
-            </div>
-            {!isEditing ? (
-              <button onClick={handleEdit} className="edit-button">
-                <FaEdit /> Edit Profile
+          <div className="main-content">
+            <div className="section-tabs">
+              <button 
+                className={`tab ${activeSection === 'profile' ? 'active' : ''}`}
+                onClick={() => setActiveSection('profile')}
+              >
+                <FaUser /> Profile
               </button>
-            ) : (
-              <div className="edit-actions">
-                <button onClick={handleSave} className="save-button">
-                  <FaSave /> Save
-                </button>
-                <button onClick={handleCancel} className="cancel-button">
-                  <FaTimes /> Cancel
-                </button>
-              </div>
-            )}
-          </div>
-
-          <div className="profile-grid">
-            <div className="profile-section main-info">
-              <h2>Personal Information</h2>
-              <div className="profile-info">
-                <div className="info-group">
-                  <label>
-                    <FaUser /> Name
-                  </label>
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      name="displayName"
-                      value={profileData.displayName}
-                      onChange={handleChange}
-                    />
-                  ) : (
-                    <span>{profileData.displayName}</span>
-                  )}
-                </div>
-                <div className="info-group">
-                  <label>
-                    <FaEnvelope /> Email
-                  </label>
-                  <span>{profileData.email}</span>
-                </div>
-                <div className="info-group">
-                  <label>
-                    <FaCalendarAlt /> Joined Date
-                  </label>
-                  <span>{profileData.joinedDate}</span>
-                </div>
-                <div className="info-group">
-                  <label>About Me</label>
-                  {isEditing ? (
-                    <textarea
-                      name="bio"
-                      value={profileData.bio}
-                      onChange={handleChange}
-                      placeholder="Tell us about yourself..."
-                    />
-                  ) : (
-                    <span className="bio">{profileData.bio || 'No bio added yet'}</span>
-                  )}
-                </div>
-              </div>
+              <button 
+                className={`tab ${activeSection === 'friends' ? 'active' : ''}`}
+                onClick={() => setActiveSection('friends')}
+              >
+                <FaUserFriends /> Friends
+              </button>
             </div>
 
-            <div className="profile-section stats-section">
-              <h2><FaTasks /> Task Statistics</h2>
-              <div className="stats-grid">
-                <div className="stat-card">
-                  <div className="stat-icon">
-                    <FaCheckCircle />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-value">{profileData.tasks.completed}</span>
-                    <span className="stat-label">Completed Tasks</span>
-                  </div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-icon">
-                    <FaChartLine />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-value">{profileData.tasks.inProgress}</span>
-                    <span className="stat-label">Tasks in Progress</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="profile-section points-section">
-              <h2><FaStar /> Points Overview</h2>
-              <div className="points-grid">
-                <div className="point-card total-points">
-                  <div className="point-icon">
-                    <FaStar />
-                  </div>
-                  <div className="point-info">
-                    <span className="point-value">{profileData.points.total}</span>
-                    <span className="point-label">Total Points</span>
-                  </div>
-                </div>
-                <div className="point-card">
-                  <div className="point-icon">
-                    <FaChartLine />
-                  </div>
-                  <div className="point-info">
-                    <span className="point-value">{profileData.points.thisMonth}</span>
-                    <span className="point-label">Points this Month</span>
-                  </div>
-                </div>
-                <div className="point-card">
-                  <div className="point-icon">
-                    <FaFire />
-                  </div>
-                  <div className="point-info">
-                    <span className="point-value">{profileData.points.streak}</span>
-                    <span className="point-label">Day Streak</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="profile-section badges-section">
-              <h2><FaMedal /> Earned Badges</h2>
-              <div className="badges-grid">
-                {profileData.badges.map((badge, index) => (
-                  <div key={index} className="badge-card">
-                    <div className="badge-icon">
-                      {badge.icon === 'FaMedal' && <FaMedal />}
-                      {badge.icon === 'FaStar' && <FaStar />}
-                      {badge.icon === 'FaCheckCircle' && <FaCheckCircle />}
+            {activeSection === 'profile' ? (
+              <>
+                <div className="profile-header">
+                  <div className="header-content">
+                    <div className="profile-avatar">
+                      <FaUser className="avatar-icon" />
                     </div>
-                    <div className="badge-info">
-                      <h3>{badge.name}</h3>
-                      <p className="badge-description">{badge.description}</p>
-                      <div className="badge-points">
-                        <FaStar className="point-icon" />
-                        <span>{badge.points} points</span>
+                    <div className="header-text">
+                      <h1>{profileData.displayName}</h1>
+                      <span className="user-level">
+                        <FaUserGraduate /> {profileData.level} Learner
+                      </span>
+                    </div>
+                  </div>
+                  {!isEditing ? (
+                    <button onClick={handleEdit} className="edit-button">
+                      <FaEdit /> Edit Profile
+                    </button>
+                  ) : (
+                    <div className="edit-actions">
+                      <button onClick={handleSave} className="save-button">
+                        <FaSave /> Save
+                      </button>
+                      <button onClick={handleCancel} className="cancel-button">
+                        <FaTimes /> Cancel
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                <div className="profile-grid">
+                  <div className="profile-section main-info">
+                    <h2>Personal Information</h2>
+                    <div className="profile-info">
+                      <div className="info-group">
+                        <label>
+                          <FaUser /> Name
+                        </label>
+                        {isEditing ? (
+                          <input
+                            type="text"
+                            name="displayName"
+                            value={profileData.displayName}
+                            onChange={handleChange}
+                          />
+                        ) : (
+                          <span>{profileData.displayName}</span>
+                        )}
                       </div>
-                      <span className="badge-date">Earned on {new Date(badge.date).toLocaleDateString()}</span>
+                      <div className="info-group">
+                        <label>
+                          <FaEnvelope /> Email
+                        </label>
+                        <span>{profileData.email}</span>
+                      </div>
+                      <div className="info-group">
+                        <label>
+                          <FaCalendarAlt /> Joined Date
+                        </label>
+                        <span>{profileData.joinedDate}</span>
+                      </div>
+                      <div className="info-group">
+                        <label>About Me</label>
+                        {isEditing ? (
+                          <textarea
+                            name="bio"
+                            value={profileData.bio}
+                            onChange={handleChange}
+                            placeholder="Tell us about yourself..."
+                          />
+                        ) : (
+                          <span className="bio">{profileData.bio || 'No bio added yet'}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
+
+                  <div className="profile-section stats-section">
+                    <h2><FaTasks /> Task Statistics</h2>
+                    <div className="stats-grid">
+                      <div className="stat-card">
+                        <div className="stat-icon">
+                          <FaCheckCircle />
+                        </div>
+                        <div className="stat-info">
+                          <span className="stat-value">{profileData.tasks.completed}</span>
+                          <span className="stat-label">Completed Tasks</span>
+                        </div>
+                      </div>
+                      <div className="stat-card">
+                        <div className="stat-icon">
+                          <FaChartLine />
+                        </div>
+                        <div className="stat-info">
+                          <span className="stat-value">{profileData.tasks.inProgress}</span>
+                          <span className="stat-label">Tasks in Progress</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="profile-section points-section">
+                    <h2><FaStar /> Points Overview</h2>
+                    <div className="points-grid">
+                      <div className="point-card total-points">
+                        <div className="point-icon">
+                          <FaStar />
+                        </div>
+                        <div className="point-info">
+                          <span className="point-value">{profileData.points.total}</span>
+                          <span className="point-label">Total Points</span>
+                        </div>
+                      </div>
+                      <div className="point-card">
+                        <div className="point-icon">
+                          <FaChartLine />
+                        </div>
+                        <div className="point-info">
+                          <span className="point-value">{profileData.points.thisMonth}</span>
+                          <span className="point-label">Points this Month</span>
+                        </div>
+                      </div>
+                      <div className="point-card">
+                        <div className="point-icon">
+                          <FaFire />
+                        </div>
+                        <div className="point-info">
+                          <span className="point-value">{profileData.points.streak}</span>
+                          <span className="point-label">Day Streak</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="profile-section badges-section">
+                    <h2><FaMedal /> Earned Badges</h2>
+                    <div className="badges-grid">
+                      {profileData.badges.map((badge, index) => (
+                        <div key={index} className="badge-card">
+                          <div className="badge-icon">
+                            {badge.icon === 'FaMedal' && <FaMedal />}
+                            {badge.icon === 'FaStar' && <FaStar />}
+                            {badge.icon === 'FaCheckCircle' && <FaCheckCircle />}
+                          </div>
+                          <div className="badge-info">
+                            <h3>{badge.name}</h3>
+                            <p className="badge-description">{badge.description}</p>
+                            <div className="badge-points">
+                              <FaStar className="point-icon" />
+                              <span>{badge.points} points</span>
+                            </div>
+                            <span className="badge-date">Earned on {new Date(badge.date).toLocaleDateString()}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : activeSection === 'friends' ? (
+              <Friends />
+            ) : null}
           </div>
         </div>
       </div>
