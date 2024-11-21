@@ -1,0 +1,151 @@
+.taskCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.taskCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.taskTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  flex: 1;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.difficulty, .status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.easy {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.medium {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+}
+
+.hard {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.open {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+
+.inProgress {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+}
+
+.completed {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.taskFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.taskInfo {
+  display: flex;
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.icon {
+  font-size: 0.9rem;
+}
+
+.acceptButton {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.acceptButton:hover {
+  opacity: 0.9;
+}
+
+.completeButton {
+  background: linear-gradient(to right, #22c55e, #3b82f6);
+}
+
+.completedBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #22c55e;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.checkIcon {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .taskFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .acceptButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

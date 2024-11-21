@@ -89,6 +89,7 @@ const Navbar = () => {
               links={[
                 { href: "/social", label: "Social" },
                 { href: "/forum", label: "Forum" },
+                { href: "/tasks", label: "Tasks" },
                 { href: "/events", label: "Events" },
                 { href: "/discord", label: "Discord" },
               ]}

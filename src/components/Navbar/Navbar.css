@@ -15,31 +15,14 @@
   border: none;
   transform-style: preserve-3d;
   perspective: 1000px;
+  animation: gentleFloat 4s ease-in-out infinite;
 }
 
-.navbar-links-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: min-content;
-  height: 1rem;
-  border-radius: 50rem;
-  padding: 1rem 1rem;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transform-style: preserve-3d;
-  transform: perspective(1000px) translateZ(0);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  color: white;
-}
 
 .navbar-links-container:hover {
   background: rgba(0, 0, 0, 0.9);
-  transform: perspective(1000px) translateZ(15px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: perspective(1000px) translateZ(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-floating {
@@ -47,6 +30,7 @@
   box-shadow: none;
   margin-top: -5rem;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: gentleFloatTop 5s ease-in-out infinite;
 }
 
 .navbar-scrolled {
@@ -64,6 +48,38 @@
   color: white;
   font-size: 24px;
   text-align: center;
+  animation: gentleFloatScrolled 4.5s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gentleFloatTop {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes gentleFloatScrolled {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
 }
 
 /* Navbar Content */
@@ -103,7 +119,7 @@
   width: min-content;
   height: 1rem;
   border-radius: 50rem;
-  padding: 1rem 1rem;
+  padding: 1.5rem 2rem;
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);

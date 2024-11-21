@@ -20,15 +20,16 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 450px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transform: translateZ(0);
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.1),
     0 0 20px rgba(255, 255, 255, 0.02) inset;
@@ -54,12 +55,11 @@
 }
 
 .card:hover {
-  transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.15),
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
     0 0 30px rgba(125, 18, 255, 0.08),
     0 0 50px rgba(0, 243, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .content {
@@ -73,9 +73,9 @@
 }
 
 .icon {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #00f3ff;
   transform: translateZ(30px);
   filter: drop-shadow(0 5px 15px rgba(0, 243, 255, 0.2));
   transition: all 0.4s ease;
@@ -97,32 +97,33 @@
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.3;
-  color: #fff;
-  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
   transform: translateZ(20px);
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #ffffff 30%, #b3b3b3);
+  background: linear-gradient(135deg, #ffffff 60%, #e6e6e6);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .description {
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
   transform: translateZ(15px);
   transition: all 0.4s ease;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 .card:hover .description {
   transform: translateZ(30px);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 1);
 }
 
 .actionWrapper {
@@ -145,19 +146,19 @@
   gap: 10px;
   width: 100%;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 15px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

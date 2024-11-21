@@ -1,7 +1,7 @@
 .profile-layout {
   display: flex;
   min-height: 100vh;
-  
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-main {
@@ -9,6 +9,7 @@
   margin-left: 250px;
   transition: margin-left 0.3s ease;
   padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-main.sidebar-collapsed {
@@ -24,6 +25,7 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-header {
@@ -48,8 +50,9 @@
 }
 
 .header-text h1 {
-  color: #00f3ff;
+  color: #deeaeb;
   font-size: 2.5rem;
+  font-weight: 500;
   margin: 0;
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
@@ -60,7 +63,7 @@
   gap: 0.5rem;
   color: #7d12ff;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .profile-grid {
@@ -115,8 +118,8 @@
 }
 
 .info-group label {
-  color: #00f3ff;
-  font-weight: 600;
+  color: #dbe5e6;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -126,6 +129,7 @@
 .info-group span {
   color: white;
   font-size: 1.1rem;
+  font-weight: 400;
   padding: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
@@ -134,6 +138,7 @@
 .info-group span.bio {
   min-height: 80px;
   line-height: 1.6;
+  font-weight: 300;
 }
 
 .info-group input,
@@ -145,6 +150,8 @@
   border-radius: 8px;
   color: white;
   font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -167,7 +174,8 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -251,14 +259,17 @@
 
 .stat-value {
   font-size: 1.8rem;
-  font-weight: 700;
-  color: #00f3ff;
+  font-weight: 600;
+  color: #d7e6e7;
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .stat-label {
   color: #888;
   font-size: 0.9rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Points Section */
@@ -316,14 +327,17 @@
 
 .point-value {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #ff00ff;
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .point-label {
   color: #888;
   font-size: 0.9rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Badges Section */
@@ -376,6 +390,8 @@
   color: white;
   margin: 0 0 0.5rem 0;
   font-size: 1.2rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .badge-description {
@@ -383,6 +399,8 @@
   font-size: 0.9rem;
   margin: 0 0 1rem 0;
   line-height: 1.4;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .badge-points {
@@ -390,8 +408,8 @@
   align-items: center;
   gap: 0.5rem;
   color: #00ff9d;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .badge-points .point-icon {
@@ -414,6 +432,7 @@ h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .section-tabs {
@@ -437,6 +456,7 @@ h2 {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .section-tabs .tab:hover {
@@ -454,6 +474,7 @@ h2 {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Media Queries */

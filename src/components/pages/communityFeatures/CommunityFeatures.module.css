@@ -1,216 +1,239 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 6%;
+}
+
 .layout {
-/* background-color: transparent; */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    font-family: Roboto, sans-serif;
-    justify-content: center;
-    padding: 112px 64px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  padding: 6rem 0;
+  position: relative;
+}
+
+.layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 243, 255, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heading {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  background: linear-gradient(45deg, #fff, rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: headingGlow 3s ease-in-out infinite;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 1.8;
+  max-width: 600px;
+  letter-spacing: 0.5px;
+}
+
+.featuresList {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.featuresRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.featureItem {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featureItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.featureTitle {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.featureDescription {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 200;
+}
+
+.featureImage {
+  flex: 1;
+  max-width: 45%;
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 100px rgba(0, 243, 255, 0.1);
+  transition: transform 0.3s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .container {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 80px;
-    justify-content: start;
-    flex-wrap: wrap;
+  50% {
+    transform: translateY(-20px);
   }
-  
-  .content {
-    align-self: stretch;
-    display: flex;
-    min-width: 240px;
-    flex-direction: column;
-    justify-content: start;
-    flex: 1;
-    flex-basis: 0%;
-    margin: auto 0;
+}
+
+@keyframes headingGlow {
+  0%, 100% {
+    opacity: 0.95;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
-  
-  .header {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: start;
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   }
-  
-  .heading {
-    font-family:  Roboto, sans-serif;
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ff6ec4 0%, #7873f5 50%, #1fd1f9 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .description {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.8;
-    color: #c0c0c0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 24px;
-  }
-  
-  .featuresList {
-    display: flex;
-    margin-top: 32px;
-    width: 100%;
-    flex-direction: column;
-    justify-content: start;
-  }
-  
-  .featuresRow {
-    display: flex;
-    width: 100%;
-    align-items: start;
-    gap: 24px;
-    justify-content: start;
-    flex-wrap: wrap;
-    padding: 8px 0;
-  }
-  
-  .featureImage {
-    aspect-ratio: 0.96;
-    object-fit: contain;
-    object-position: center;
-    width: 100%;
-    align-self: stretch;
-    min-width: 240px;
-    flex: 1;
-    flex-basis: 0%;
-    margin: auto 0;
-  }
-  
-  .paragraph {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #c0c0c0;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .cardTitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-align: center;
-    margin: 0;
-    background: linear-gradient(135deg, #ff6ec4 0%, #7873f5 50%, #1fd1f9 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .cardDescription {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    text-align: center;
-    color: #c0c0c0;
-    margin: 0;
-    max-width: 80%;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card3D {
-    position: relative;
-    width: 50%;
-    aspect-ratio: 3/4;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
-    border-radius: 24px;
-    padding: 2rem;
-    perspective: 1500px;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    overflow: hidden;
-    backdrop-filter: blur(15px);
-    box-shadow: 
-      0 10px 30px rgba(0, 0, 0, 0.3),
-      0 20px 40px rgba(0, 0, 0, 0.5);
-  }
-  
-  .cardContent {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transform-style: preserve-3d;
-    z-index: 1;
-  }
-  
-  .cardIcon {
-    width: 80px;
-    height: 80px;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    padding: 1rem;
-    transform-style: preserve-3d;
-    transition: all 0.3s ease;
-  }
-  
-  .cardGlow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 255, 255, 0.1),
-      transparent 50%
-    );
+}
+
+.card3D {
+  position: relative;
+  width: 50%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  border-radius: 24px;
+  padding: 2rem;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cardContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 1rem;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.1),
+    transparent 50%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+  animation: glow 2s infinite;
+}
+
+.cardShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes glow {
+  0% {
     opacity: 0.5;
-    pointer-events: none;
-    animation: glow 2s infinite;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 991px) {
+  .layout {
+    padding: 100px 20px;
   }
   
-  .cardShine {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      transparent 100%
-    );
-    mix-blend-mode: overlay;
-    pointer-events: none;
+  .container,
+  .content,
+  .header,
+  .heading,
+  .description,
+  .featuresList,
+  .featuresRow,
+  .featureImage {
+    max-width: 100%;
   }
-
-  @keyframes glow {
-    0% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 0.5;
-    }
-  }
-
-  @media (max-width: 991px) {
-    .layout {
-      padding: 100px 20px;
-    }
-  
-    .container,
-    .content,
-    .header,
-    .heading,
-    .description,
-    .featuresList,
-    .featuresRow,
-    .featureImage {
-      max-width: 100%;
-    }
-  }
+}

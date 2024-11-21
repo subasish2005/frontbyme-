@@ -6,6 +6,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Profile from './components/profile/Profile';
 import Social from './components/social/Social';
+import Tasks from './components/tasks/Tasks';
 import './App.css';
 
 // Protected Route component
@@ -59,6 +60,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Social />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/tasks" 
+          element={
+            <ProtectedRoute>
+              <Tasks />
             </ProtectedRoute>
           } 
         />
